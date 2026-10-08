@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express"
 import cors from "cors";
-import connecctDB from "./config/db.js";
+import connectDB from "./config/db.js";
 import productRoutes from "./routes/productRoutes.js"
 
 const app = express();
@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productRoutes);
 
-connecctDB().then(()=> {
+connectDB().then(()=> {
     app.listen(PORT, () => console.log(`Server running on Port ${PORT}`))
 });
